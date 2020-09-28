@@ -1,15 +1,11 @@
 <h1>Eat-Da-Burger!</h1>
 
-<h2>burgers that are not devoured!</h2>
-
 <li>
 	{{name}}
 
-	<button class="change-devour" data-id="{{id}}" data-newsleep="{{devour}}">
-		{{#if devoured}}DEVOURED!{{else}}DEVOUR IT!{{/if}}
+	<button class="change-devour" data-id="{{id}}" data-newdev="{{devour}}">
+		DEVOUR IT!
 	</button>
-
-	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
 </li>
 
 
@@ -22,8 +18,8 @@
   </div>
 
   <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
+    <label for="devoured">Enter a burger you want to eat. Click the "Submit" button.</label><br>
   </div>
 
-  <button type="submit">Add burger</button>
+  <button type="submit">Submit</button>
 </form>
