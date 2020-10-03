@@ -4,20 +4,28 @@ $(function() {
     $(".change-devoured").on("click", function(event) {
       var id = $(this).data("id");
       var devourStatus = $(this).data("devoured");
+
+      var update = 0;
+      if (devourStatus === 0) {
+        update = 1;
+      }
+      if (devourStatus === 1) {
+        update = 0;
+      }
   
-      var newDevState = {
-        devoured: newDev
+      var newDevour = {
+        devoured: update
       };
   
       // Send the PUT request.
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
-        data: newDevState
+        data: newDevour
       }).then(
         function() {
-          console.log("changed devour to", newdevour);
+          console.log("Changed devour to", newDevour);
           // Reload the page to get the updated list
-          loburgerion.reload();
+          location.reload();
         }
       );
     });
@@ -26,20 +34,19 @@ $(function() {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   
-      var newburger = {
-        name: $("#ca").val().trim(),
-        devoured: $("[name=devoured]:checked").val().trim()
+      var newBurger = {
+        burger_name: $("#bu").val().trim(),
       };
   
       // Send the POST request.
       $.ajax("/api/burgers", {
         type: "POST",
-        data: newburger
+        data: newBurger
       }).then(
         function() {
-          console.log("created new burger");
+          console.log("Created new burger");
           // Reload the page to get the updated list
-          loburgerion.reload();
+          location.reload();
         }
       );
     });
@@ -52,9 +59,9 @@ $(function() {
         type: "DELETE"
       }).then(
         function() {
-          console.log("deleted burger", id);
+          console.log("Deleted burger", id);
           // Reload the page to get the updated list
-          loburgerion.reload();
+          location.reload();
         }
       );
     });
