@@ -1,25 +1,63 @@
-<h1>Eat-Da-Burger!</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
 
-<li>
-	{{name}}
+    <h1 class="display-4 text-center">Eat-Da-Burger!</h1>
 
-	<button class="change-devour" data-id="{{id}}" data-newdev="{{devour}}">
-		DEVOUR IT!
-	</button>
-</li>
+    <li>
+      {{name}}
+
+      <button class="change-devour" data-id="{{id}}" data-newdev="{{devour}}">
+        DEVOUR IT!
+      </button>
+    </li>
 
 
-<h2>Add a burger</h2>
-<form class="create-form">
+    <h2>Add a burger</h2>
+    <form class="create-form">
 
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+      <div class="form-group d-flex justify-content-center">
+        <label for="bu">Burger Name:</label>
+        <input type="text" id="bu" name="name" placeholder="burger">
+      </div>
+
+      {{!-- <div class="form-group">
+        <label for="devoured">Enter a burger you want to eat. Click the "Submit" button.</label><br>
+      </div> --}}
+      <div class="d-flex justify-content-center">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-xl-6">
+        <h3 class="text-center">Uneaten Burgers</h3>
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            {{#each burgers}}
+
+            {{#unless devoured}}
+
+            {{/unless}}
+            {{/each}}            
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+      <div class="col-xl-6">
+        <h3 class="text-center">Eaten Burgers</h3>
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            {{#each burgers}}
+
+            {{#if devoured}}
+
+            {{/if}}
+            {{/each}}            
+          </ul>
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="devoured">Enter a burger you want to eat. Click the "Submit" button.</label><br>
-  </div>
-
-  <button type="submit">Submit</button>
-</form>
+</div>
