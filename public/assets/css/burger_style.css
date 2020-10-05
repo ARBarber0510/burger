@@ -1,22 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 
 body {
-  background: #faebd7;
+  background: rgb(65, 238, 180);
+  height: auto;
+  max-width: 100%;
   text-align: center;
   font-family: 'Architects Daughter', cursive;
 }
 
 .jumbotron {
-  background: #fad503;
+  background: url(burger-and-fries.jpg);
+  background-size: cover;
+  height: auto;
+  max-width: 100%;
 }
 
 li {
     padding: 5px;
     margin: 5px;
-  }
-
-  .row {
-    float: left;
   }
   
   .label {

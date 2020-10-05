@@ -1,3 +1,5 @@
+const { query } = require("express");
+
 var connection = require("../config/connection.js");
 
 function printQuestionMarks(num) {
@@ -34,6 +36,8 @@ function printQuestionMarks(num) {
 
 // Object for all our SQL statement functions.
 var orm = {
+
+  // Selecting all burgers from database
     selectAll: function(tableInput, cb) {
       var queryString = "SELECT * FROM " + tableInput + ";";
       connection.query(queryString, function(err, result) {
@@ -43,6 +47,8 @@ var orm = {
         cb(result);
       });
     },
+
+    // Inserting a burger in the database
     insertOne: function(table, cols, vals, cb) {
       var queryString = "INSERT INTO " + table;
   
@@ -63,7 +69,7 @@ var orm = {
         cb(result);
       });
     },
-    // An example of objColVals would be {name: panther, sleepy: true}
+    // Updating burger in database
     updateOne: function(table, objColVals, condition, cb) {
       var queryString = "UPDATE " + table;
   
@@ -80,6 +86,20 @@ var orm = {
   
         cb(result);
       });
+    },
+    // Delete a burger in database
+    delete: function(table, condition, cd) {
+      var queryString = "DELETE FROM " + table;
+      queryString += " WHERE ";
+      queryString += condition;
+
+      connection.query(queryString, function(err, result) {
+        if (err) {
+          throw err;
+        }
+  
+        cb(result);
+      })
     }
   };
 
