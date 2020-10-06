@@ -25,6 +25,7 @@ $(function() {
 
     $(".change-devoured").on("click", function(event) {
       var id = $(this).data("id");
+      console.log(id);
       var devourStatus = $(this).data("devoured");
 
       var update = 0;
