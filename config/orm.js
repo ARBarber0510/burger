@@ -1,4 +1,4 @@
-const { query } = require("express");
+// const { query } = require("express");
 
 var connection = require("../config/connection.js");
 
