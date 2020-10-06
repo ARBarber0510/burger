@@ -38,8 +38,8 @@ function printQuestionMarks(num) {
 var orm = {
 
   // Selecting all burgers from database
-    selectAll: function(tableInput, cb) {
-      var queryString = "SELECT * FROM " + tableInput + ";";
+    selectAll: function(table, cb) {
+      var queryString = "SELECT * FROM " + table + ";";
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
@@ -88,7 +88,7 @@ var orm = {
       });
     },
     // Delete a burger in database
-    delete: function(table, condition, cd) {
+    delete: function(table, condition, cb) {
       var queryString = "DELETE FROM " + table;
       queryString += " WHERE ";
       queryString += condition;
